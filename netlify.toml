@@ -1,0 +1,25 @@
+[build]
+  # The base directory is where Netlify starts.
+  # It should contain the 'frontend' and 'backend' folders.
+  base    = "frontend/"
+  
+  # The command to build your frontend app.
+  command = "npm run build"
+  
+  # The directory that contains the built assets.
+  publish = "frontend/dist/"
+  
+[build.environment]
+  # Specify the Node.js version for the build environment.
+  NODE_VERSION = "18"
+  
+  # IMPORTANT: You must set VITE_BACKEND_URL in the Netlify UI.
+  # This is just a placeholder.
+  # Example: VITE_BACKEND_URL = "https://my-gateway.on-render.com"
+
+[[redirects]]
+  # This rule ensures that all paths are routed to index.html,
+  # which is necessary for single-page applications (SPAs ) like React.
+  from = "/*"
+  to = "/index.html"
+  status = 200
